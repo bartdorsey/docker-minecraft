@@ -1,0 +1,16 @@
+version: "3.4"
+services:
+  minecraft:
+    build: ./
+    environment:
+      - PUID=1001
+      - PGID=1001
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+    ports:
+      - '19132:19132/tcp'
+      - '19132:19132/udp'
+    stdin_open: true
+    tty: true
+
